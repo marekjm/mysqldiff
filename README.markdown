@@ -1,53 +1,53 @@
-README for MySQL-Diff
+# MariaDB::Diff
 
-                              MySQL-Diff
-                             ============
+MariaDB::Diff is suite of Perl modules and accompanying CLI script for
+comparing the schema (table structures) of two MariaDB databases.
 
-MySQL-Diff is suite of Perl modules and accompanying CLI script for
-comparing the schema (table structures) of two MySQL databases.
 
 Prerequisites
 -------------
 
-This suite probably requires Perl 5.005 or higher.
+This code is *not* tested on any Perl version below 5.22.
+
 
 Availability
 ------------
 
-The latest version of MySQL-Diff is available from
+The code is available from Github repository: [https://github.com/posbit/mariadbdiff](https://github.com/posbit/mariadbdiff).
 
-  http://adamspiers.org/computing/mysqldiff/
-
-and eventually (a possibly slightly older version) from the
-Comprehensive Perl Archive Network (CPAN).  Visit
-<http://www.perl.com/CPAN> to find a CPAN site near you.
 
 Installation
 ------------
 
 See INSTALL file.
 
+
 Documentation
 -------------
 
-Homepage: http://adamspiers.org/computing/mysqldiff/
-Documentation at CPAN: http://search.cpan.org/dist/MySQL-Diff/
+Homepage: [https://github.com/posbit/mariadbdiff](https://github.com/posbit/mariadbdiff)
+
 
 Support
 -------
 
-Questions, patches, and suggestions for MySQL-Diff should just be sent
-to me at <mysqldiff@adamspiers.org>.  Bug reports should be submitted 
-at the website below.
+Questions, patches, and suggestions for MariaDB::Diff should be submitted as
+Github issues.
+
 
 Known bugs
 ----------
 
-See https://rt.cpan.org/Public/Dist/Display.html?Name=MySQL-Diff
+See [list of known bugs](https://github.com/posbit/mariadbdiff/labels/bug).
+
 
 Copyright
 ---------
 
-(c) 2000-2011 Adam Spiers <mysqldiff@adamspiers.org>, all rights reserved.
+This is a fork of Adam Spiers' MySQL-Diff code.
+
+(c) 2000-2011 Adam Spiers <mysqldiff@adamspiers.org>, all rights reserved
+(c) 2015 Posbit.pl
+
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
