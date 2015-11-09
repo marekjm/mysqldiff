@@ -46,7 +46,7 @@ Copyright
 
 This is a fork of Adam Spiers' MySQL-Diff code.
 
-(c) 2000-2011 Adam Spiers <mysqldiff@adamspiers.org>, all rights reserved
+(c) 2000-2011 Adam Spiers <mysqldiff@adamspiers.org>, all rights reserved  
 (c) 2015 Posbit.pl
 
 This program is free software; you can redistribute it and/or modify
