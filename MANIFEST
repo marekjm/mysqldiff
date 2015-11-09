@@ -4,10 +4,10 @@ bin/mysqldiff
 Changes
 ChangeLog.OLD
 INSTALL
-lib/MySQL/Diff.pm
-lib/MySQL/Diff/Database.pm
-lib/MySQL/Diff/Table.pm
-lib/MySQL/Diff/Utils.pm
+lib/MariaDB/Diff.pm
+lib/MariaDB/Diff/Database.pm
+lib/MariaDB/Diff/Table.pm
+lib/MariaDB/Diff/Utils.pm
 MANIFEST
 Makefile.PL
 META.yml

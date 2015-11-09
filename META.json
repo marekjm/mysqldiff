@@ -29,20 +29,20 @@
       }
    },
    "provides" : {
-      "MySQL::Diff" : {
-         "file" : "lib/MySQL/Diff.pm",
+      "MariaDB::Diff" : {
+         "file" : "lib/MariaDB/Diff.pm",
          "version" : "0.44"
       },
-      "MySQL::Diff::Database" : {
-         "file" : "lib/MySQL/Diff/Database.pm",
+      "MariaDB::Diff::Database" : {
+         "file" : "lib/MariaDB/Diff/Database.pm",
          "version" : "0.44"
       },
-      "MySQL::Diff::Table" : {
-         "file" : "lib/MySQL/Diff/Table.pm",
+      "MariaDB::Diff::Table" : {
+         "file" : "lib/MariaDB/Diff/Table.pm",
          "version" : "0.44"
       },
-      "MySQL::Diff::Utils" : {
-         "file" : "lib/MySQL/Diff/Utils.pm",
+      "MariaDB::Diff::Utils" : {
+         "file" : "lib/MariaDB/Diff/Utils.pm",
          "version" : "0.44"
       }
    },

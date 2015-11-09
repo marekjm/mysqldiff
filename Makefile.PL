@@ -8,7 +8,7 @@ use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 WriteMakefile1(
-    NAME     => 'MySQL::Diff',
+    NAME     => 'MariaDB::Diff',
     #KEYWORDS    => [ qw/mysql diff compare schema tables structure database/ ],
     LICENSE  => 'perl',
     META_ADD => {
@@ -34,7 +34,7 @@ WriteMakefile1(
         'IO::File'    => 0,
     },
     EXE_FILES    => [ 'bin/mysqldiff' ],
-    VERSION_FROM => 'lib/MySQL/Diff.pm', # finds $VERSION
+    VERSION_FROM => 'lib/MariaDB/Diff.pm', # finds $VERSION
 );
 
 sub WriteMakefile1 {  #Written by Alexandr Ciornii, version 0.21. Added by eumm-upgrade.

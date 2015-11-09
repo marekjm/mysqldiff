@@ -1,14 +1,14 @@
-package MySQL::Diff;
+package MariaDB::Diff;
 
 =head1 NAME
 
-MySQL::Diff - Generates a database upgrade instruction set
+MariaDB::Diff - Generates a database upgrade instruction set
 
 =head1 SYNOPSIS
 
-  use MySQL::Diff;
+  use MariaDB::Diff;
 
-  my $md = MySQL::Diff->new( %options );
+  my $md = MariaDB::Diff->new( %options );
   my $db1 = $md->register_db($ARGV[0], 1);
   my $db2 = $md->register_db($ARGV[1], 2);
   my $diffs = $md->diff();
@@ -28,8 +28,8 @@ our $VERSION = '0.44.1';
 # ------------------------------------------------------------------------------
 # Libraries
 
-use MySQL::Diff::Database;
-use MySQL::Diff::Utils qw(debug debug_level debug_file);
+use MariaDB::Diff::Database;
+use MariaDB::Diff::Utils qw(debug debug_level debug_file);
 
 use Data::Dumper;
 
@@ -61,7 +61,7 @@ sub new {
     if($hash{debug})        { debug_level($hash{debug})     ; delete $hash{debug};      }
     if($hash{debug_file})   { debug_file($hash{debug_file}) ; delete $hash{debug_file}; }
 
-    debug(3,"\nconstructing new MySQL::Diff");
+    debug(3,"\nconstructing new MariaDB::Diff");
 
     return $self;
 }
@@ -75,7 +75,7 @@ Fuller documentation will appear here in time :)
 =item * register_db($name,$inx)
 
 Reference the database, and setup a connection. The name can be an already
-existing 'MySQL::Diff::Database' database object. The index can be '1' or '2',
+existing 'MariaDB::Diff::Database' database object. The index can be '1' or '2',
 and refers both to the order of the diff, and to the host, port, username and
 password arguments that have been supplied.
 
@@ -85,7 +85,7 @@ sub register_db {
     my ($self, $name, $inx) = @_;
     return unless $inx == 1 || $inx == 2;
 
-    my $db = ref $name eq 'MySQL::Diff::Database' ? $name : $self->_load_database($name,$inx);
+    my $db = ref $name eq 'MariaDB::Diff::Database' ? $name : $self->_load_database($name,$inx);
     $self->{databases}[$inx-1] = $db;
     return $db;
 }
@@ -415,7 +415,7 @@ sub _load_database {
     }
 
     if ($arg =~ /^db:(.*)/) {
-        return MySQL::Diff::Database->new(db => $1, auth => \%auth, 'table-re' => $self->{opts}{'table-re'});
+        return MariaDB::Diff::Database->new(db => $1, auth => \%auth, 'table-re' => $self->{opts}{'table-re'});
     }
 
     if ($self->{opts}{"dbh"}              ||
@@ -424,18 +424,18 @@ sub _load_database {
         $self->{opts}{"user$authnum"}     ||
         $self->{opts}{"password$authnum"} ||
         $self->{opts}{"socket$authnum"}) {
-        return MySQL::Diff::Database->new(db => $arg, auth => \%auth, 'table-re' => $self->{opts}{'table-re'});
+        return MariaDB::Diff::Database->new(db => $arg, auth => \%auth, 'table-re' => $self->{opts}{'table-re'});
     }
 
     if (-f $arg) {
-        return MySQL::Diff::Database->new(file => $arg, auth => \%auth, 'table-re' => $self->{opts}{'table-re'});
+        return MariaDB::Diff::Database->new(file => $arg, auth => \%auth, 'table-re' => $self->{opts}{'table-re'});
     }
 
-    my %dbs = MySQL::Diff::Database::available_dbs(%auth);
+    my %dbs = MariaDB::Diff::Database::available_dbs(%auth);
     debug(2, "  available databases: ", (join ', ', keys %dbs), "\n");
 
     if ($dbs{$arg}) {
-        return MySQL::Diff::Database->new(db => $arg, auth => \%auth, 'table-re' => $self->{opts}{'table-re'});
+        return MariaDB::Diff::Database->new(db => $arg, auth => \%auth, 'table-re' => $self->{opts}{'table-re'});
     }
 
     warn "'$arg' is not a valid file or database.\n";
@@ -459,7 +459,7 @@ under the same terms as Perl itself.
 
 =head1 SEE ALSO
 
-L<mysqldiff>, L<MySQL::Diff::Database>, L<MySQL::Diff::Table>, L<MySQL::Diff::Utils>
+L<mysqldiff>, L<MariaDB::Diff::Database>, L<MariaDB::Diff::Table>, L<MariaDB::Diff::Utils>
 
 =head1 AUTHOR
 

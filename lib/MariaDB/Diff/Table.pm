@@ -1,14 +1,14 @@
-package MySQL::Diff::Table;
+package MariaDB::Diff::Table;
 
 =head1 NAME
 
-MySQL::Diff::Table - Table Definition Class
+MariaDB::Diff::Table - Table Definition Class
 
 =head1 SYNOPSIS
 
-  use MySQL::Diff::Table
+  use MariaDB::Diff::Table
 
-  my $db = MySQL::Diff::Database->new(%options);
+  my $db = MariaDB::Diff::Database->new(%options);
   my $def           = $db->def();
   my $name          = $db->name();
   my $field         = $db->field();
@@ -38,7 +38,7 @@ our $VERSION = '0.44.1';
 # Libraries
 
 use Carp qw(:DEFAULT);
-use MySQL::Diff::Utils qw(debug);
+use MariaDB::Diff::Utils qw(debug);
 
 # ------------------------------------------------------------------------------
 
@@ -63,8 +63,8 @@ sub new {
 
     $self->{$_} = $hash{$_} for(keys %hash);
 
-    debug(3,"\nconstructing new MySQL::Diff::Table");
-    croak "MySQL::Diff::Table::new called without def params" unless $self->{def};
+    debug(3,"\nconstructing new MariaDB::Diff::Table");
+    croak "MariaDB::Diff::Table::new called without def params" unless $self->{def};
     $self->_parse;
     return $self;
 }
@@ -241,7 +241,7 @@ under the same terms as Perl itself.
 
 =head1 SEE ALSO
 
-L<mysqldiff>, L<MySQL::Diff>, L<MySQL::Diff::Database>, L<MySQL::Diff::Utils>
+L<mysqldiff>, L<MariaDB::Diff>, L<MariaDB::Diff::Database>, L<MariaDB::Diff::Utils>
 
 =head1 AUTHOR
 

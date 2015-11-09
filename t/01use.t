@@ -4,9 +4,9 @@ use strict;
 use Test::More tests => 4;
 
 BEGIN {
-	use_ok( 'MySQL::Diff' );
-	use_ok( 'MySQL::Diff::Database' );
-	use_ok( 'MySQL::Diff::Table' );
-	use_ok( 'MySQL::Diff::Utils' );
+	use_ok( 'MariaDB::Diff' );
+	use_ok( 'MariaDB::Diff::Database' );
+	use_ok( 'MariaDB::Diff::Table' );
+	use_ok( 'MariaDB::Diff::Utils' );
 }
 

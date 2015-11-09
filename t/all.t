@@ -3,8 +3,8 @@
 use strict;
 
 use Test::More;
-use MySQL::Diff;
-use MySQL::Diff::Database;
+use MariaDB::Diff;
+use MariaDB::Diff::Database;
 
 my $TEST_USER = 'test';
 my @VALID_ENGINES = qw(MyISAM InnoDB);
@@ -449,8 +449,8 @@ my @tests = (keys %tests); #keys %tests
 
       note("test=".Dumper($tests{$test}));
 
-      my $diff = MySQL::Diff->new(%$opts, %debug);
-      isa_ok($diff,'MySQL::Diff');
+      my $diff = MariaDB::Diff->new(%$opts, %debug);
+      isa_ok($diff,'MariaDB::Diff');
 
       my $db1 = get_db($db1_defs, 1, $opts->{'table-re'});
       my $db2 = get_db($db2_defs, 2, $opts->{'table-re'});
@@ -460,8 +460,8 @@ my @tests = (keys %tests); #keys %tests
       note("d1=" . Dumper($d1));
       note("d2=" . Dumper($d2));
 
-      isa_ok($d1, 'MySQL::Diff::Database');
-      isa_ok($d2, 'MySQL::Diff::Database');
+      isa_ok($d1, 'MariaDB::Diff::Database');
+      isa_ok($d2, 'MariaDB::Diff::Database');
 
       my $diffs = $diff->diff();
       $diffs =~ s/^## mysqldiff [\d.]+/## mysqldiff <VERSION>/m;
@@ -503,7 +503,7 @@ sub get_db {
     open(TMP, ">$file") or die "open: $!";
     print TMP $defs;
     close(TMP);
-    my $db = MySQL::Diff::Database->new(file => $file, auth => { user => $TEST_USER }, 'table-re' => $table_re);
+    my $db = MariaDB::Diff::Database->new(file => $file, auth => { user => $TEST_USER }, 'table-re' => $table_re);
     unlink $file;
     return $db;
 }

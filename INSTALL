@@ -13,9 +13,9 @@ Module::Build instead of ExtUtils::MakeMaker.)
 Installation from either of the recommended installers can be performed at the
 command line, with either of the two following commands:
 
-  $ perl -MCPANPLUS -e 'install MySQL::Diff'
+  $ perl -MCPANPLUS -e 'install MariaDB::Diff'
 
-  $ perl -MCPAN -e 'install MySQL::Diff'
+  $ perl -MCPAN -e 'install MariaDB::Diff'
 
 Although CPAN.pm is the default installer for many, with the release of Perl
 5.10, CPANPLUS.pm is now also available in core. However, if you use an earlier
@@ -53,7 +53,7 @@ Then run these commands:
 2) Install via ExtUtils::MakeMaker (deprecated but simpler)
 -------------------------------------------------------------
 
-You can install MySQL::Diff in the traditional way by running these commands:
+You can install MariaDB::Diff in the traditional way by running these commands:
 
    perl Makefile.PL
    make

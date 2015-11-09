@@ -1,21 +1,21 @@
-package MySQL::Diff::Database;
+package MariaDB::Diff::Database;
 
 =head1 NAME
 
-MySQL::Diff::Database - Database Definition Class
+MariaDB::Diff::Database - Database Definition Class
 
 =head1 SYNOPSIS
 
-  use MySQL::Diff::Database;
+  use MariaDB::Diff::Database;
 
-  my $db = MySQL::Diff::Database->new(%options);
+  my $db = MariaDB::Diff::Database->new(%options);
   my $source    = $db->source_type();
   my $summary   = $db->summary();
   my $name      = $db->name();
   my @tables    = $db->tables();
   my $table_def = $db->table_by_name($table);
 
-  my @dbs = MySQL::Diff::Database::available_dbs();
+  my @dbs = MariaDB::Diff::Database::available_dbs();
 
 =head1 DESCRIPTION
 
@@ -35,8 +35,8 @@ use Carp qw(:DEFAULT);
 use File::Slurp;
 use IO::File;
 
-use MySQL::Diff::Utils qw(debug);
-use MySQL::Diff::Table;
+use MariaDB::Diff::Utils qw(debug);
+use MariaDB::Diff::Table;
 
 # ------------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ sub new {
     my $self = {};
     bless $self, ref $class || $class;
 
-    debug(3,"\nconstructing new MySQL::Diff::Database");
+    debug(3,"\nconstructing new MariaDB::Diff::Database");
 
     my $string = _auth_args_string(%{$p{auth}});
     debug(3,"auth args: $string");
@@ -74,7 +74,7 @@ sub new {
     } elsif ($p{db}) {
         $self->_read_db($p{db});
     } else {
-        confess "MySQL::Diff::Database::new called without db or file params";
+        confess "MariaDB::Diff::Database::new called without db or file params";
     }
 
     $self->_parse_defs();
@@ -146,7 +146,7 @@ sub tables {
 
 =item * table_by_name( $name )
 
-Returns the table definition (see L<MySQL::Diff::Table>) for the given table.
+Returns the table definition (see L<MariaDB::Diff::Table>) for the given table.
 
 =cut
 
@@ -318,7 +318,7 @@ sub _parse_defs {
     for my $table (@tables) {
         debug(4, "  table def [$table]");
         if($table =~ /create\s+table/i) {
-            my $obj = MySQL::Diff::Table->new(source => $self->{_source}, def => $table);
+            my $obj = MariaDB::Diff::Table->new(source => $self->{_source}, def => $table);
             push @{$self->{_tables}}, $obj;
             $self->{_by_name}{$obj->name()} = $obj;
         }
@@ -346,7 +346,7 @@ under the same terms as Perl itself.
 
 =head1 SEE ALSO
 
-L<mysqldiff>, L<MySQL::Diff>, L<MySQL::Diff::Table>, L<MySQL::Diff::Utils>
+L<mysqldiff>, L<MariaDB::Diff>, L<MariaDB::Diff::Table>, L<MariaDB::Diff::Utils>
 
 =head1 AUTHOR
 

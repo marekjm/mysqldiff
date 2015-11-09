@@ -196,7 +196,7 @@
 	* Diff.pm: doh!
 
 	* mysqldiff, Diff.pm:
-	move MySQLdiff -> MySQL::Diff
+	move MySQLdiff -> MariaDB::Diff
 
 2001-09-18  Adam Spiers  <mysqldiff@adamspiers.org>
 

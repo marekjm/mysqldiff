@@ -1,5 +1,5 @@
 use Test::More;
-use MySQL::Diff;
+use MariaDB::Diff;
 
 # Skip if doing a regular install
 plan skip_all => "Author tests not required for installation"
@@ -12,12 +12,12 @@ plan no_plan;
 
 my $yaml = meta_spec_ok(undef,undef,@_);
 
-is($yaml->{version},$MySQL::Diff::VERSION,
+is($yaml->{version},$MariaDB::Diff::VERSION,
     'META.yml distribution version matches');
 
 if($yaml->{provides}) {
     for my $mod (keys %{$yaml->{provides}}) {
-        is($yaml->{provides}{$mod}{version},$MySQL::Diff::VERSION,
+        is($yaml->{provides}{$mod}{version},$MariaDB::Diff::VERSION,
             "META.yml entry [$mod] version matches");
     }
 }

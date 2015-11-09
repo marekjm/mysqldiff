@@ -1,12 +1,12 @@
-package MySQL::Diff::Utils;
+package MariaDB::Diff::Utils;
 
 =head1 NAME
 
-MySQL::Diff::Utils - Supporting functions for MySQL:Diff
+MariaDB::Diff::Utils - Supporting functions for MySQL:Diff
 
 =head1 SYNOPSIS
 
-  use MySQL::Diff::Utils qw(debug_level debug);
+  use MariaDB::Diff::Utils qw(debug_level debug);
 
 =head1 DESCRIPTION
 
@@ -105,7 +105,7 @@ under the same terms as Perl itself.
 
 =head1 SEE ALSO
 
-L<mysqldiff>, L<MySQL::Diff>, L<MySQL::Diff::Database>, L<MySQL::Diff::Table>
+L<mysqldiff>, L<MariaDB::Diff>, L<MariaDB::Diff::Database>, L<MariaDB::Diff::Table>
 
 =head1 AUTHOR
 

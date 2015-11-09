@@ -5,7 +5,7 @@ use Module::Build;
 #created by eumm-migrate.pl
 
 my $build = Module::Build->new(
-    module_name => 'MySQL::Diff',
+    module_name => 'MariaDB::Diff',
     keywords    => [ qw/mysql diff compare schema tables structure database/ ],
     license     => 'perl',
 
@@ -45,7 +45,7 @@ my $build = Module::Build->new(
         'IO::File'    => 0,
     },
     script_files => [ 'bin/mysqldiff' ],
-    all_from => 'lib/MySQL/Diff.pm',
+    all_from => 'lib/MariaDB/Diff.pm',
     configure_requires => {
         'Module::Build' => 0,
     },
