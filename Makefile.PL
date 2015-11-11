@@ -14,17 +14,17 @@ WriteMakefile1(
     META_ADD => {
         resources => {
             license => [ 'http://dev.perl.org/licenses/' ],
-            homepage => 'http://adamspiers.org/computing/mysqldiff/',
+            homepage => 'http://adamspiers.org/computing/mariadbdiff/',
             bugtracker => {
                 web    => 'http://rt.cpan.org/Public/Dist/Display.html?Name=MySQL-Diff',
-                mailto => 'mysqldiff@adamspiers.org',
+                mailto => 'mariadbdiff@adamspiers.org',
             },
             repository => {
-                url  => 'git:github.com/aspiers/mysqldiff.git',
-                web  => 'http://github.com/aspiers/mysqldiff',
+                url  => 'git:github.com/aspiers/mariadbdiff.git',
+                web  => 'http://github.com/aspiers/mariadbdiff',
                 type => 'git',
             },
-            #repository => 'http://github.com/aspiers/mysqldiff',
+            #repository => 'http://github.com/aspiers/mariadbdiff',
         },
     },
     MIN_PERL_VERSION => '5.006',
@@ -33,7 +33,7 @@ WriteMakefile1(
         'File::Slurp' => 0,
         'IO::File'    => 0,
     },
-    EXE_FILES    => [ 'bin/mysqldiff' ],
+    EXE_FILES    => [ 'bin/mariadbdiff' ],
     VERSION_FROM => 'lib/MariaDB/Diff.pm', # finds $VERSION
 );
 

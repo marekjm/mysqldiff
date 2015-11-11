@@ -1,6 +1,6 @@
 BUGS
 Build.PL
-bin/mysqldiff
+bin/mariadbdiff
 Changes
 ChangeLog.OLD
 INSTALL
@@ -11,7 +11,7 @@ lib/MariaDB/Diff/Utils.pm
 MANIFEST
 Makefile.PL
 META.yml
-README
+README.markdown
 t/01use.t
 t/90podtest.t
 t/91podcover.t
