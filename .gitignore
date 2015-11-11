@@ -1,6 +1,7 @@
 MySQL-Diff-*
 mysqldiff-*.tar.gz
 
+debug.log
 blib*
 Makefile
 Makefile.old
