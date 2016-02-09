@@ -109,7 +109,7 @@ my %tests = (
   [
     {},
     @tables{qw/foo1 foo2/},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -124,7 +124,7 @@ ALTER TABLE foo ADD COLUMN field blob;
   [
     {},
     @tables{qw/foo2 foo1/},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -139,7 +139,7 @@ ALTER TABLE foo DROP COLUMN field; # was blob
   [
     {},
     @tables{qw/foo2 foo3/},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -154,7 +154,7 @@ ALTER TABLE foo CHANGE COLUMN field field tinyblob; # was blob
   [
     { 'no-old-defs' => 1 },
     @tables{qw/foo2 foo1/},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ## Options: no-old-defs
@@ -170,7 +170,7 @@ ALTER TABLE foo DROP COLUMN field;
   [
     { },
     $tables{foo1}, $tables{foo2} . $tables{bar1},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -194,7 +194,7 @@ CREATE TABLE bar (
   [
     { },
     $tables{foo1} . $tables{bar1}, $tables{foo2},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -211,7 +211,7 @@ ALTER TABLE foo ADD COLUMN field blob;
   [
     { 'only-both' => 1 },
     $tables{foo1} . $tables{bar1}, $tables{foo2},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ## Options: only-both
@@ -227,7 +227,7 @@ ALTER TABLE foo ADD COLUMN field blob;
   [
     { 'keep-old-tables' => 1 },
     $tables{foo1} . $tables{bar1}, $tables{foo2},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ## Options: keep-old-tables
@@ -244,7 +244,7 @@ ALTER TABLE foo ADD COLUMN field blob;
     { 'table-re' => 'ba' },
     $tables{foo1} . $tables{bar1} . $tables{baz1},
     $tables{foo2} . $tables{bar2} . $tables{baz2},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ## Options: table-re=ba
@@ -262,7 +262,7 @@ ALTER TABLE baz ADD UNIQUE firstname (firstname,surname);
     {},
     $tables{foo3},
     $tables{foo4},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -281,7 +281,7 @@ ALTER TABLE foo DROP INDEX id;
     {},
     $tables{foo4},
     $tables{foo3},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -300,7 +300,7 @@ ALTER TABLE foo DROP INDEX id;
     {},
     $tables{bar1},
     $tables{bar2},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -316,7 +316,7 @@ ALTER TABLE bar ADD UNIQUE name (name,age);
     {},
     $tables{bar2},
     $tables{bar1},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -332,7 +332,7 @@ ALTER TABLE bar DROP INDEX name; # was UNIQUE (name,age)
     {},
     $tables{bar2},
     $tables{bar3},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -349,7 +349,7 @@ ALTER TABLE bar ADD UNIQUE id (id,name,age);
     {},
     $tables{bar3},
     $tables{bar2},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -366,7 +366,7 @@ ALTER TABLE bar ADD UNIQUE name (name,age);
     {},
     $tables{bar1},
     $tables{bar3},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -382,7 +382,7 @@ ALTER TABLE bar ADD UNIQUE id (id,name,age);
     {},
     $tables{bar3},
     $tables{bar1},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -398,7 +398,7 @@ ALTER TABLE bar DROP INDEX id; # was UNIQUE (id,name,age)
     {},
     $tables{baz2},
     $tables{baz3},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -415,7 +415,7 @@ ALTER TABLE baz ADD INDEX firstname (firstname,surname);
     {},
     $tables{baz3},
     $tables{baz2},
-    '## mysqldiff <VERSION>
+    '## mariadbdiff <VERSION>
 ##
 ## Run on <DATE>
 ##
@@ -464,7 +464,7 @@ my @tests = (keys %tests); #keys %tests
       isa_ok($d2, 'MariaDB::Diff::Database');
 
       my $diffs = $diff->diff();
-      $diffs =~ s/^## mysqldiff [\d.]+/## mysqldiff <VERSION>/m;
+      $diffs =~ s/^## mariadbdiff [\d.]+/## mariadbdiff <VERSION>/m;
       $diffs =~ s/^## Run on .*/## Run on <DATE>/m;
       $diffs =~ s{/\*!40\d{3} .*? \*/;\n*}{}m;
       $diffs =~ s/ *$//gm;
